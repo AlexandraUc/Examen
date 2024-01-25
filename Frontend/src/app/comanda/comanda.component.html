@@ -1,0 +1,26 @@
+<button (click)="getCo()">Get Comenzi</button>
+
+<div *ngIf="comenzi.length > 0">
+    <h3>Comenzi</h3>
+    <ul>
+        <li *ngFor="let co of comenzi">
+            <p>Id: {{ co.id }}</p>
+            <p>Utilizator: {{ co.utilizatorId }}</p>
+
+            <div *ngIf="co.produs.length > 0">
+                <ul>
+                    <li *ngFor="let pr of co.produs">
+                        <p>Id: {{ pr.id }}</p>
+                        <p>Nume: {{ pr.nume }}</p>
+                        <p>Pret: {{ pr.pret }}</p>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="postCo()">
+    <input type="text" formControlName="utilizatorId" placeholder="UtilizatorId input">
+    <button type="submit">Post Comanda</button>
+</form>

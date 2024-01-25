@@ -1,0 +1,20 @@
+<button (click)="getPr()">Get Produse</button>
+
+<div *ngIf="produse.length > 0">
+    <h3>Produse</h3>
+    <ul>
+        <li *ngFor="let pr of produse">
+            <p>Id: {{ pr.id }}</p>
+            <p>Nume: {{ pr.nume }}</p>
+            <p>Pret: {{ pr.pret }}</p>
+        </li>
+    </ul>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="postPr()">
+    <input type="text" formControlName="nume" placeholder="Nume input">
+    <input type="text" formControlName="pret" placeholder="Pret input">
+    <button type="submit">Post Produs</button>
+</form>
+
+

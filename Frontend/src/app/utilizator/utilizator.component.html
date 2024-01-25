@@ -1,0 +1,19 @@
+<button (click)="getUt()">Get Utilizatori</button>
+
+<div *ngIf="utilizatori.length > 0">
+    <h3>Utilizatori</h3>
+    <ul>
+        <li *ngFor="let ut of utilizatori">
+            <p>Id: {{ ut.id }}</p>
+            <p>Username: {{ ut.username }}</p>
+            <p>Parola: {{ ut.password }}</p>
+        </li>
+    </ul>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="postUt()">
+    <input type="text" formControlName="username" placeholder="Username input">
+    <input type="text" formControlName="password" placeholder="Parola input">
+    <button type="submit">Post Utilizator</button>
+</form>
+
